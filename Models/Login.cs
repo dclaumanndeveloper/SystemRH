@@ -12,19 +12,19 @@ namespace SystemRH.Models
         public int ID { get; set; }
         [Required(ErrorMessage ="Usuário Obrigatório",AllowEmptyStrings = false)]
         [Display(Name = "Usuário")]
-        public String username { get; set; }
+        public String Username { get; set; }
 
         [Required(ErrorMessage = "Senha Obrigatória", AllowEmptyStrings = false)]
         [Display(Name = "Senha")]
-        public String password { get; set; }
+        public String Password { get; set; }
         [Required(ErrorMessage = "E-mail Obrigatório", AllowEmptyStrings = false)]
         [Display(Name = "E-mail")]
-        public String email { get; set; }
+        public String Email { get; set; }
         [Required(ErrorMessage = "Tipo de Login Obrigatório", AllowEmptyStrings = false)]
         [Display(Name = "Tipo de Login")]
-        public Enumerators.typeLogin typeLogin { get; set; }
+        public Enumerators.TypeLogin TypeLogin { get; set; }
         [Display(Name = "Situação")]
-        public char active { get; set; }
+        public char Active { get; set; }
 
     }
 }

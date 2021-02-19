@@ -7,6 +7,6 @@ namespace SystemRH.Models
 {
     public class Enumerators
     {
-        public enum typeLogin { Administrator,Recruiter,Candidate}
+        public enum TypeLogin { Administrator,Recruiter,Candidate}
     }
 }
