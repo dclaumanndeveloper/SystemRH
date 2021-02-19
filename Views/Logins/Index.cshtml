@@ -13,19 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.username)
+                @Html.DisplayNameFor(model => model.Username)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.password)
+                @Html.DisplayNameFor(model => model.Password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.email)
+                @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.typeLogin)
+                @Html.DisplayNameFor(model => model.TypeLogin)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.active)
+                @Html.DisplayNameFor(model => model.Active)
             </th>
             <th></th>
         </tr>
@@ -34,19 +34,19 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.username)
+                @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.password)
+                @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.email)
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.typeLogin)
+                @Html.DisplayFor(modelItem => item.TypeLogin)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.active)
+                @Html.DisplayFor(modelItem => item.Active)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

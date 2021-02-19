@@ -14,5 +14,6 @@ namespace SystemRH.Data
         {
         }
         public DbSet<SystemRH.Models.Login> Login { get; set; }
+        public DbSet<SystemRH.Models.Recruiter> Recruiter { get; set; }
     }
 }

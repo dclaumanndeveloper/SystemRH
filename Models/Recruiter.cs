@@ -35,7 +35,6 @@ namespace SystemRH.Models
         public String Telephone { get; set; }
         [Display(Name = "Celular")]
         public String Cell { get; set; }
-
         public String Fax { get; set; }
         [Display(Name = "Situação")]
         public String Active { get; set; }

@@ -10,22 +10,22 @@ using SystemRH.Models;
 
 namespace SystemRH.Controllers
 {
-    public class LoginsController : Controller
+    public class RecruitersController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public LoginsController(ApplicationDbContext context)
+        public RecruitersController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Logins
+        // GET: Recruiters
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Login.ToListAsync());
+            return View(await _context.Recruiter.ToListAsync());
         }
 
-        // GET: Logins/Details/5
+        // GET: Recruiters/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace SystemRH.Controllers
                 return NotFound();
             }
 
-            var login = await _context.Login
+            var recruiter = await _context.Recruiter
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (login == null)
+            if (recruiter == null)
             {
                 return NotFound();
             }
 
-            return View(login);
+            return View(recruiter);
         }
 
-        // GET: Logins/Create
+        // GET: Recruiters/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Logins/Create
+        // POST: Recruiters/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Username,Password,Email,TypeLogin,Active")] Login login)
+        public async Task<IActionResult> Create([Bind("ID,CompanyName,FantasyName,CNPJ,Cep,Adress,Complement,Neighborhood,City,State,Telephone,Cell,Fax,Active")] Recruiter recruiter)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(login);
+                _context.Add(recruiter);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(login);
+            return View(recruiter);
         }
 
-        // GET: Logins/Edit/5
+        // GET: Recruiters/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace SystemRH.Controllers
                 return NotFound();
             }
 
-            var login = await _context.Login.FindAsync(id);
-            if (login == null)
+            var recruiter = await _context.Recruiter.FindAsync(id);
+            if (recruiter == null)
             {
                 return NotFound();
             }
-            return View(login);
+            return View(recruiter);
         }
 
-        // POST: Logins/Edit/5
+        // POST: Recruiters/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Username,Password,Email,TypeLogin,Active")] Login login)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,CompanyName,FantasyName,CNPJ,Cep,Adress,Complement,Neighborhood,City,State,Telephone,Cell,Fax,Active")] Recruiter recruiter)
         {
-            if (id != login.ID)
+            if (id != recruiter.ID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace SystemRH.Controllers
             {
                 try
                 {
-                    _context.Update(login);
+                    _context.Update(recruiter);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LoginExists(login.ID))
+                    if (!RecruiterExists(recruiter.ID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace SystemRH.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(login);
+            return View(recruiter);
         }
 
-        // GET: Logins/Delete/5
+        // GET: Recruiters/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace SystemRH.Controllers
                 return NotFound();
             }
 
-            var login = await _context.Login
+            var recruiter = await _context.Recruiter
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (login == null)
+            if (recruiter == null)
             {
                 return NotFound();
             }
 
-            return View(login);
+            return View(recruiter);
         }
 
-        // POST: Logins/Delete/5
+        // POST: Recruiters/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var login = await _context.Login.FindAsync(id);
-            _context.Login.Remove(login);
+            var recruiter = await _context.Recruiter.FindAsync(id);
+            _context.Recruiter.Remove(recruiter);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LoginExists(int id)
+        private bool RecruiterExists(int id)
         {
-            return _context.Login.Any(e => e.ID == id);
+            return _context.Recruiter.Any(e => e.ID == id);
         }
     }
 }
